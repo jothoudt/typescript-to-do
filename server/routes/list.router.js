@@ -1,10 +1,10 @@
 const express= require('express');
-const router = express.Router();
+const listRouter = express.Router();
 
-const pool = require('../pool')
+const pool = require('../modules/pool')
 
 //post route
-router.post('/', (req, res) => {
+listRouter.post('/', (req, res) => {
     let newTask= req.body;
     let queryText=`INSERT INTO "toDo" ("task", "completed") VALUES ($1, $2)`;
     pool.query(queryText, [newTask.task, newTask.completed]).then(result => {
@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
     })
 })//end POST
 //get route
-router.get('/', (req, res) =>{
+listRouter.get('/', (req, res) =>{
     let queryText=`SELECT * FROM "toDo" ORDER BY "id";`;
     pool.query(queryText).then(result => {
         res.send(result.rows);
@@ -26,7 +26,7 @@ router.get('/', (req, res) =>{
     })
 })//end GET
 //delete route
-router.delete('/:id', (req,res) =>{
+listRouter.delete('/:id', (req,res) =>{
     console.log('list Delete', req.params);
     let queryString= `DELETE FROM "toDo" WHERE "id"=$1`
     pool.query(queryString, [req.params.id]).then((results) => {
@@ -37,7 +37,7 @@ router.delete('/:id', (req,res) =>{
     })
 })//end DELETE
 //put route
-router.put('/:id', (req,res) =>{
+listRouter.put('/:id', (req,res) =>{
     let queryString=`UPDATE "toDo" SET "completed"=true, "completeTime"=$2 WHERE "id"=$1;`
     pool.query(queryString,[req.params.id, req.body.completeTime]).then((results)=>{
         res.sendStatus(200);
@@ -48,4 +48,4 @@ router.put('/:id', (req,res) =>{
     })
 })//end PUT
 
-module.exports = router;
+module.exports = listRouter;

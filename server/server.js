@@ -2,15 +2,34 @@
 const express =require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const router= require('./modules/routes/list.router');
-const PORT = process.env.PORT || 5000;
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
-//use router
-app.use('/listofthings', router)
+const sessionMiddleware = require('./modules/session-middleware');
+const passport = require('./strategies/user.strategy');
 
+//This route gets the user
+const listRouter = require('./routes/list.router')
+const userRouter = require('./routes/user.router');
+
+// Passport Session Configuration //
+app.use(sessionMiddleware);
+
+// start up passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+//--------------------------------------------------------//
+//use router
+app.use('/listofthings', listRouter)
+//this route is for the user
+app.use('/api/user', userRouter);
+//--------------------------------------------------------//
+
+app.use(express.static('build'));
+const PORT = process.env.PORT || 5000;
 //spin up server
 app.listen(PORT, ()=>{
     console.log('listening on port', PORT)
