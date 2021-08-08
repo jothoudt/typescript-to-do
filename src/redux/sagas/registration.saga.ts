@@ -4,6 +4,7 @@ import axios from 'axios';
 // worker Saga: will be fired on "REGISTER" actions
 function* registerUser(action:any) {
   try {
+    console.log(action.payload)
     // clear any existing error on the registration page
     yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
 
@@ -11,7 +12,7 @@ function* registerUser(action:any) {
     yield axios.post('/api/user/register', action.payload);
 
     // automatically log a user in after registration
-    yield put({ type: 'LOGIN', payload: action.payload });
+    yield put({ type: 'LOGIN', payload:action.payload });
 
     // set to 'login' mode so they see the login screen
     // after registration or after they log out

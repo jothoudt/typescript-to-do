@@ -1,11 +1,12 @@
 import React from 'react';
+import './Header.css';
 
 function Header(){
     return(
-        <div>
-            <input type="text" placeholder="Task" />
-            <button>Add Task</button>
+        <div className="header">
+            <h1 className="header-title">TypeScript To Do App</h1>
         </div>
+        
     )
 }
 

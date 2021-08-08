@@ -8,7 +8,6 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 
 function RegisterForm( { setLoginToggle, loginToggle }:any ) {
   const [username, setUsername] = useState('');
@@ -29,7 +28,7 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
   }; // end registerUser
 
   return (
-    <Box>
+    <Box style={{padding:"50px"}}>
     <Typography
     color="primary"
     display="block"
@@ -37,9 +36,8 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
   >
     Register
   </Typography>
-  <Typography variant="body2">
-    Welcome to YourPath Dashboard. 
-    Please fill out these two fields:
+  <Typography variant="body2" style={{padding:"4px"}}>
+    Welcome to TypeScript To Do APP
   </Typography>
       <form onSubmit={registerUser}>
         {errors.registrationMessage && (
@@ -48,19 +46,18 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
           </h3>
         )}
         <Grid container justify="center">
-          <Grid item xs={12}>
+          <Grid item xs={12} style={{padding:"4px"}}>
             <TextField
               label="Username"
               type="text"
               variant="standard"
-              color="secondary"
               fullWidth
               value={username}
               required
               onChange={(event) => setUsername(event.target.value)}
                 />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} style={{padding:"4px"}}>
             <TextField
               label="Password"
               type="password"
@@ -73,10 +70,10 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
             />
           </Grid>
           <Grid item xs={12} justify="center">
-              <Button variant="contained" color="primary" type="submit" name="submit">Join</Button>
+              <Button style={{margin:"12px"}} variant="contained" color="primary" type="submit" name="submit">Join</Button>
           </Grid>
           <Grid item xs={12} justify="center">
-            <Button onClick={()=>setLoginToggle(!loginToggle)}>Go to login</Button>
+            <Button style={{margin:"12px"}} onClick={()=>setLoginToggle(!loginToggle)}>Go to login</Button>
           </Grid>
         </Grid>
       </form>

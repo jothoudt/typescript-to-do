@@ -13,10 +13,10 @@ function RegisterPage() {
     //needed for styling
 
   return (
-    <Box className="registerContainer">
+    <Box border={1} boxShadow={12} style={{width:"30%", margin:"auto", marginTop:"100px", padding:"50px"}}>
             <RegistrationForm />
             <br />
-            <Typography variant="body2" color="textSecondary">
+            <Typography>
               Already have a login?
             </Typography>
             <Button onClick={() => { history.push( '/login' ) } }>

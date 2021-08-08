@@ -8,7 +8,7 @@ function LoginPage() {
 
   return (
     <div className="login-page-container">
-      <Box border={1} borderColor="#ff4500" boxShadow={12} style={{width:'360px', margin: 'auto', padding:'50px', fontSize: '20px', marginTop: '100px'}}>
+      <Box border={1} boxShadow={12} style={{width:'360px', margin: 'auto', padding:'50px', fontSize: '20px', marginTop: '100px', backgroundColor:"white"}}>
       <LoginForm />
 
       {/* <center> */}

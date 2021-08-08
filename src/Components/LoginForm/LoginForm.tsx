@@ -32,7 +32,7 @@ function LoginForm() {
 
   const ifLoggedIn=()=>{
     if(user.username){
-      history.push('/')
+      history.push('/home')
     }
   }
 

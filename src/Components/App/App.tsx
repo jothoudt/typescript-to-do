@@ -15,22 +15,31 @@ function App() {
       <Router>
         <div>
           <Header />
-        </div>
-        <Switch>
-          <Route exact path='/'>
-            <LandingPage />
-          </Route>
-          <Route exact path='/login'>
-            <LoginPage />
-          </Route>
-          <Route exact path='/registration'>
-            <RegistrationPage />
-          </Route>
-          <ProtectedRoute exact path='/home'>
-            <Home />
-          </ProtectedRoute>
-        </Switch>
-      </Router>
+          <Switch>
+            <div className="app-body">
+            <Route exact path='/'>
+              <LandingPage />
+            </Route>
+            <Route exact path='/login'>
+              <LoginPage />
+            </Route>
+            <ProtectedRoute
+              // with authRedirect:
+              // - if logged in, redirects to "/user"
+              // - else shows RegisterPage at "/registration"
+              exact
+              path="/registration"
+              authRedirect="/home"
+            >
+              <RegistrationPage />
+            </ProtectedRoute>
+            <ProtectedRoute exact path='/home'>
+              <Home />
+            </ProtectedRoute>
+            </div>
+          </Switch>
+          </div>
+        </Router>
     </div>
   );
 }
