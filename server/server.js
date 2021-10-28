@@ -7,8 +7,8 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 //This route gets the user
-const listRouter = require('./routes/list.router')
 const router = require('./routes/user.router');
+const tasksRouter=require('./routes/task.router');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
@@ -21,10 +21,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //--------------------------------------------------------//
-//use router
-app.use('/listofthings', listRouter)
 //this route is for the user
 app.use('/api/user', router);
+//this route is for the tasks
+app.use('/api/tasks/', tasksRouter)
 //--------------------------------------------------------//
 
 app.use(express.static('build'));

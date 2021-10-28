@@ -15,8 +15,8 @@ function App() {
       <Router>
         <div>
           <Header />
+          <div className="app-body">
           <Switch>
-            <div className="app-body">
             <Route exact path='/'>
               <LandingPage />
             </Route>
@@ -36,8 +36,9 @@ function App() {
             <ProtectedRoute exact path='/home'>
               <Home />
             </ProtectedRoute>
-            </div>
+  
           </Switch>
+          </div>
           </div>
         </Router>
     </div>
