@@ -36,9 +36,9 @@ function* fetchTasks(action:any):any{
 function* completeTask(action:any){
     try{
         console.log('in Complete task',action.payload)
-        yield axios.put('/api/tasks/' + action.payload )
+        yield axios.put('/api/tasks/' + action.payload.task_id )
         //to fetch updated list of tasks after completing a task
-        yield put({type:'FETCH_TASKS'})
+        yield put({type:'FETCH_TASKS', payload: action.payload.user_id})
     }   //end try
     catch(error){
         console.log('error in complete task', error)
