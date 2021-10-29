@@ -12,11 +12,11 @@ tasksRouter.post('/', (req, res)=>{
         .catch((err)=>{console.log('error in POST',err), res.sendStatus(500)});
 }); //END POST
 //GET ROUTE THAT GETS ALL OF THE TASKS FROM THE DATABASE
-tasksRouter.get('/', (req, res)=>{
+tasksRouter.get('/:id', (req, res)=>{
     //database GET query
-    const getTasksQuery= `SELECT * FROM todo;`
+    const getTasksQuery= `SELECT * FROM todo WHERE user_id=$1;`
     //execute query
-    pool.query(getTasksQuery).then(result=>{res.send(result.rows)})
+    pool.query(getTasksQuery, [req.params.id]).then(result=>{res.send(result.rows)})
         .catch((err)=>{console.log('error in get tasks', err),res.sendStatus(500)});
 }); //END GET
 //PUT ROUTE THAT UPDATES THE TASK TO COMPLETE

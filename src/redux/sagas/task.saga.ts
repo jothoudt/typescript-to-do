@@ -13,17 +13,17 @@ function* addTasks(action:any){
         console.log("in POST tasks",)
         yield axios.post('/api/tasks/', action.payload)
         //get updated task list after adding task
-        yield put({type:'FETCH_TASKS'})
+        yield put({type:'FETCH_TASKS', payload: action.payload.user_id})
     }   //end try
     catch(error){
         console.log('error in POST task', error)
     }   //end catch
 }   //end addTasks
 //GET---to get tasks from the database
-function* fetchTasks():any{
+function* fetchTasks(action:any):any{
     try{
         console.log('in GET tasks')
-        const response= yield axios.get('/api/tasks')
+        const response= yield axios.get('/api/tasks/' + action.payload)
         console.log(response.data)
         //to store tasks in reducer
         yield put ({type:'SET_TASKS', payload:response.data})
