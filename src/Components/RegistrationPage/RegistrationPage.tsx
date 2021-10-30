@@ -13,7 +13,7 @@ function RegisterPage() {
     //needed for styling
 
   return (
-    <Box border={1} boxShadow={12} style={{width:"30%", margin:"auto", marginTop:"100px", padding:"50px"}}>
+    <Box border={2} borderColor="#deb887" boxShadow={12} style={{width:'360px', margin:"auto", marginTop:"100px", padding:"50px"}}>
             <RegistrationForm />
             <br />
             <Typography>

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 function LogOutButton(props:any) {
   const dispatch = useDispatch();
   return (
-    <Button style={{padding:'8px', marginTop:'12px', marginBottom:'24px', backgroundColor: '#48BF84', width: "124px"}}
+    <Button style={{backgroundColor: "#4DA1A9", color:"#F8F8F8", width: "100px"}}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
       Log Out

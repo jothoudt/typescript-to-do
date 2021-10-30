@@ -13,6 +13,7 @@ function DisplayTasksEach({task}:{task:any}){
     const user=useSelector((store:any)=>{return store.user})
     //function triggers dispatch to complete a tasks
     const completeTask =()=>{
+        //define object to be sent to the saga
         let taskToComplete={
             task_id:task.id,
             user_id:user.id
@@ -22,10 +23,15 @@ function DisplayTasksEach({task}:{task:any}){
     }   //end completeTask
     //function triggers dispatch to delete a task
     const deleteThisTask=()=>{
+        //define object to send to the saga
+        let taskToDelete={
+            task_id:task.id,
+            user_id:user.id
+        }
         //send id of the task to be deleted
-        dispatch({type:"DELETE_TASK", payload:task.id})
+        dispatch({type:"DELETE_TASK", payload:taskToDelete})
     }   //end deleteThisTask
-    //format date for date_added. *This is needed for the java backend version
+    //format date for date_added. 
     const dateAddedFormat=()=>{
         //define formatted date_added
         let formattedDateAdded=''
@@ -34,11 +40,6 @@ function DisplayTasksEach({task}:{task:any}){
         if(!thisDate){
             formattedDateAdded=''
         }   //end if 
-        //checks how long the string is. if it is too long slice it.
-        //PYTHON version is already formatted response from the server and the length is 29
-        else if(thisDate.length === 29 && thisDate[28] ==='T'){
-            formattedDateAdded= thisDate.slice(0.16)
-        }
         else {
             formattedDateAdded= thisDate.slice(0,10)
         }   //end else
@@ -51,9 +52,6 @@ function DisplayTasksEach({task}:{task:any}){
         let completeDate=task.date_completed;
         if(!completeDate){
             formattedDate=''
-        }
-        else if(completeDate.length === 18){
-            formattedDate=task.date_completed;
         }
         //if the task is completed give the formatted version of the completed time.
         else if(task.date_completed){

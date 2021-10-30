@@ -47,9 +47,9 @@ function* completeTask(action:any){
 //DELETE---to delete a task from the database
 function* deleteTask(action:any){
     console.log('in delete task')
-    yield axios.delete('/api/tasks/' + action.payload)
+    yield axios.delete('/api/tasks/' + action.payload.task_id)
     //fetch updated task list after deleting task
-    yield put({type:'FETCH_TASKS'})
+    yield put({type:'FETCH_TASKS', payload:action.payload.user_id})
 }   //end deleteTask
 
 export default taskSaga;

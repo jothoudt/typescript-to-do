@@ -30,7 +30,6 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
   return (
     <Box style={{padding:"50px"}}>
     <Typography
-    color="primary"
     display="block"
     variant="h4"
   >
@@ -70,10 +69,7 @@ function RegisterForm( { setLoginToggle, loginToggle }:any ) {
             />
           </Grid>
           <Grid item xs={12} justify="center">
-              <Button style={{margin:"12px"}} variant="contained" color="primary" type="submit" name="submit">Join</Button>
-          </Grid>
-          <Grid item xs={12} justify="center">
-            <Button style={{margin:"12px"}} onClick={()=>setLoginToggle(!loginToggle)}>Go to login</Button>
+              <Button style={{margin:"12px", backgroundColor:"#4DA1A9"}} variant="contained" type="submit" name="submit">Join</Button>
           </Grid>
         </Grid>
       </form>

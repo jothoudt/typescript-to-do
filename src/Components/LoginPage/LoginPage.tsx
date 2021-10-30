@@ -8,11 +8,11 @@ function LoginPage() {
 
   return (
     <div className="login-page-container">
-      <Box border={1} boxShadow={12} style={{width:'360px', margin: 'auto', padding:'50px', fontSize: '20px', marginTop: '100px', backgroundColor:"white"}}>
+      <Box border={2} borderColor="#deb887" boxShadow={12} style={{width:'360px', margin: 'auto', padding:'50px', fontSize: '20px', marginTop: '100px', backgroundColor:"white"}}>
       <LoginForm />
 
       {/* <center> */}
-        <Button style={{padding:'8px', marginTop:'12px', backgroundColor: '#48BF84', width: "88px"}}
+        <Button style={{padding:'8px', marginTop:'12px', backgroundColor: '#4DA1A9', width: "88px"}}
           onClick={() => {
             history.push('/registration');
           }}

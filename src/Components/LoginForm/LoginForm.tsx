@@ -70,7 +70,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <Button style={{padding:'8px', marginTop:'20px', backgroundColor: '#48BF84', width: "88px"}} className="btn" type="submit" name="submit" value="Log In">Log In</Button>
+        <Button style={{padding:'8px', marginTop:'20px', backgroundColor: '#4DA1A9', width: "88px"}} className="btn" type="submit" name="submit" value="Log In">Log In</Button>
       </div>
     </form>
   );
