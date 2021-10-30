@@ -5,9 +5,10 @@
     justify-content: center;
     height:100px;
     display: flex;
+    margin-top: 0;
 }
-.header-title{
+/* .header-title{
     margin-top: auto;
     margin-bottom: auto;
     padding-top:auto;
-}
+} */

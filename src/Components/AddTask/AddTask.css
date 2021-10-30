@@ -1,0 +1,12 @@
+.add-task-input{
+    border-radius: 12px;
+    width: 300px;
+    height: 44px;
+    border: 3px solid #deb887;
+}
+.text-entered-input{
+    border-radius: 12px;
+    width: 300px;
+    height: 44px;
+    border: 3px solid #4DA1A9;
+}
