@@ -28,7 +28,7 @@ function AddTask(){
                 <h2>Add A Task</h2>
             </div>
             <div>
-                <input className={task === '' ? "add-task-input" : "text-entered-input"} type="text" placeholder="Task" onChange={(event)=>{setTask(event.target.value)}} />
+                <input className={task === '' ? "add-task-input" : "text-entered-input"} type="text" placeholder="Add a task" onChange={(event)=>{setTask(event.target.value)}} />
             </div>
             <div>
                 <Button style={{backgroundColor:"#deb887", marginTop: "24px", fontSize: "large"}}onClick={addThisTask}>Add Task</Button>

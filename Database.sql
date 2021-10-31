@@ -7,10 +7,11 @@ CREATE TABLE "user" (
 
 -- Table for the tasks
 
-CREATE TABLE "toDo" (
+CREATE TABLE "todo" (
 "id" SERIAL PRIMARY KEY,
-"user_id" int REFERENCES "user",
+"user_id" int REFERENCES "user" NOT NULL,
 "task" VARCHAR(250) NOT NULL,
 "completed" BOOLEAN DEFAULT FALSE,
-"completed_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+"date_added" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+"date_completed" VARCHAR(50) DEFAULT NULL
 );

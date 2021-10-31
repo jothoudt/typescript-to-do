@@ -8,7 +8,6 @@ import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LoginPage from '../LoginPage/LoginPage';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
   const onLogin = (event:any) => {
@@ -19,9 +18,7 @@ function LandingPage() {
     <div className="container">
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
-          {heading}, Please log in.
-          </p>
+
         </div>
         <div className="grid-col grid-col_4">
           <LoginPage />
