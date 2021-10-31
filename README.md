@@ -13,4 +13,14 @@ and delete a task(delete).
 - Express
 - PostgreSQL
 
+## Photos
+![App Login Photo](public/images/Typescript1.png)
+![App Main Photo](public/images/Typescript2.png)
+
 ## To get started
+
+- Create a PostgreSQL database named: typescript_to_do
+- Create the tables provided in the Database.sql file
+- git clone this repo
+- npm install
+- To start the application open two terminals. In the first enter npm run server. in the second enter npm run client
